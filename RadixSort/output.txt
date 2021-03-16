@@ -1,0 +1,3 @@
+ The time for the gcc sort is: 24123.5
+ The time for the quick sort is: 6115
+ The time for the radix sort is: 547.834
