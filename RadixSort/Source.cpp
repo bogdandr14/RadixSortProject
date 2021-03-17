@@ -7,6 +7,8 @@
 #include<ratio>
 
 #define BASE 256
+#define MIN 0
+#define MAX INT_MAX
 #define NO_ELEMENTS 10000000
 using namespace std;
 ofstream fout("output.txt");
@@ -74,7 +76,7 @@ void testQuickSort(int* toSort, int noElements) {
 }
 
 int main() {
-	generateInputNumbers(0, INT_MAX, NO_ELEMENTS);
+	//generateInputNumbers(MIN, MAX, NO_ELEMENTS);
 
 	ifstream fin("input.txt");
 	int element, i = 0, noElements;
