@@ -8,14 +8,13 @@
 using namespace std;
 ifstream fin("input.txt");
 ofstream fout("output.txt");
+#define BUFFER_SIZE 100000000
 
 int main(int& argc, char** argv) {
 
-	int element, PID, NO_PROCS, elemPerProc, NO_ELEMENTS;
+	int element, noElemForProc, PID, NO_PROCS, NO_ELEMENTS;
 	fin >> NO_ELEMENTS;
-
 	int* toSort = new int [NO_ELEMENTS];
-
 	for (int i = 0; i < NO_ELEMENTS; ++i) {
 		fin >> element;
 		toSort[i] = element;
@@ -25,11 +24,14 @@ int main(int& argc, char** argv) {
 	MPI_Comm_size(MPI_COMM_WORLD, &NO_PROCS);
 	MPI_Comm_rank(MPI_COMM_WORLD, &PID);
 
-    elemPerProc = NO_ELEMENTS / NO_PROCS;
+    int* buffer = new int[BUFFER_SIZE];
+    MPI_Buffer_attach( malloc(BUFFER_SIZE), BUFFER_SIZE);
 
-    if (elemPerProc < 1) {
+    noElemForProc = NO_ELEMENTS / NO_PROCS;
+
+    if (noElemForProc < 1) {
         if (PID == 0) {
-            cout<<"Number of elements must be bigger than the number of processes\n";
+            cout << "Number of elements must be bigger than the number of processes\n";
         }
         MPI_Finalize();
         return 1;
@@ -64,6 +66,7 @@ int main(int& argc, char** argv) {
     }*/
     
 	delete[] toSort;
+    delete[] buffer;
 	MPI_Finalize();
 	return 0;
 }

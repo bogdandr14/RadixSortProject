@@ -26,7 +26,7 @@ int addElem(List* list, int elem) {
         size_t newCapacity = list->capacity * 2;
         int* newArray = (int*)realloc(list->array, newCapacity * sizeof(int));
         if (!newArray) {
-            std::cout << "ERROR: Could not realloc for size" << (int)newCapacity;
+            std::cout << "Can not realloc memory for a bucket of size" << (int)newCapacity;
             return 1;
         }
         list->capacity = newCapacity;
@@ -162,12 +162,9 @@ int* ParallelRadixSort(int* elementsToSort, int NO_ELEMENTS, int NO_PROCS, int P
                 }
             }
         }
-        /*if (digitPos == NO_DIGITS - 1) {
-            std::cout << "Process " << PID << " size : " << newSize;
-        }*/
     }
 
-    // Store number of items per each process after the sort.
+    // Store number of items for each process after the sort.
     /*for (int i = 0; i < noLocalElem; ++i) {
         if (PID) {
             break;
@@ -206,7 +203,7 @@ int* ParallelRadixSort(int* elementsToSort, int NO_ELEMENTS, int NO_PROCS, int P
                 /*for (int i = 0; i < noLocalElem; ++i) {
                     cout << newV[i] << " ";
                 }*/
-                //memcpy(&elementsToSort[start], newV, noLocalElem * sizeof(int));
+                memcpy(&elementsToSort[start], newV, noLocalElem * sizeof(int));
             }
             start += noLocalElem;
         }
