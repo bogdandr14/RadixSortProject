@@ -11,7 +11,7 @@
 #define MAX INT_MAX
 #define NO_ELEMENTS 10000000
 using namespace std;
-ofstream fout("output.txt");
+ofstream fout("../Inputs & Output/output.txt");
 
 /*
 * Method used for comparison in the quick sort algorithm.
@@ -78,7 +78,7 @@ void testQuickSort(int* toSort, int noElements) {
 int main() {
 	//generateInputNumbers(MIN, MAX, NO_ELEMENTS);
 
-	ifstream fin("input.txt");
+	ifstream fin("../Inputs & Output/input5.txt");
 	int element, i = 0, noElements;
 	fin >> noElements;
 	int* toSortRadix = new int[noElements];

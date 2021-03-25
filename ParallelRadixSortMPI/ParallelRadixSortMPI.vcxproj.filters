@@ -18,12 +18,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NumberGenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SeqRadixSort.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Inputs &amp; Outputs\input.txt">
@@ -53,7 +47,7 @@
     <Text Include="..\Inputs &amp; Outputs\input8.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="output.txt">
+    <Text Include="..\Inputs &amp; Output\output.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

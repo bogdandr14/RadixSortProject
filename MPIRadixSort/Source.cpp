@@ -9,8 +9,8 @@
 #include<ctime>
 #include<ratio>
 using namespace std;
-ifstream fin("input.txt");
-ofstream fout("output.txt");
+ifstream fin("../Inputs & Output/input5.txt");
+ofstream fout("../Inputs & Output/output.txt");
 #define BASE 256
 
 int main(int& argc, char** argv) {

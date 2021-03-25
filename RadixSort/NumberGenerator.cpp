@@ -32,7 +32,7 @@ int randomNumberInRange(long long min, long long max) {
 * noNumbers - the number of numbers to be generated
 */
 void generateInputNumbers(int min, int max, int noNumbers) {
-    std::ofstream fout("input.txt");
+    std::ofstream fout("../Inputs/input.txt");
     srand(time(0));
     fout << noNumbers << "\n";
     std::cout << "Started generating numbers\n";

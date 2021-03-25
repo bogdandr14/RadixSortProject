@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SequentialRadixSort", "Radi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MPIRadixSort", "MPIRadixSort\MPIRadixSort.vcxproj", "{1F0D04DD-DB69-40B6-B724-95FAB0F502DF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParallelRadixSort", "ParallelRadixSort\ParallelRadixSort.vcxproj", "{4F25D6C6-978B-4D2A-949E-9670C104AEA2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParallelRadixSortMPI", "ParallelRadixSortMPI\ParallelRadixSortMPI.vcxproj", "{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +35,22 @@ Global
 		{1F0D04DD-DB69-40B6-B724-95FAB0F502DF}.Release|x64.Build.0 = Release|x64
 		{1F0D04DD-DB69-40B6-B724-95FAB0F502DF}.Release|x86.ActiveCfg = Release|Win32
 		{1F0D04DD-DB69-40B6-B724-95FAB0F502DF}.Release|x86.Build.0 = Release|Win32
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Debug|x64.ActiveCfg = Debug|x64
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Debug|x64.Build.0 = Debug|x64
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Debug|x86.Build.0 = Debug|Win32
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Release|x64.ActiveCfg = Release|x64
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Release|x64.Build.0 = Release|x64
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Release|x86.ActiveCfg = Release|Win32
+		{4F25D6C6-978B-4D2A-949E-9670C104AEA2}.Release|x86.Build.0 = Release|Win32
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Debug|x64.ActiveCfg = Debug|x64
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Debug|x64.Build.0 = Debug|x64
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Debug|x86.ActiveCfg = Debug|Win32
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Debug|x86.Build.0 = Debug|Win32
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Release|x64.ActiveCfg = Release|x64
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Release|x64.Build.0 = Release|x64
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Release|x86.ActiveCfg = Release|Win32
+		{2F4C003B-0DA9-4D38-95DB-97D5396B4AA6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -149,13 +149,15 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt" />
-    <Text Include="input1.txt" />
-    <Text Include="input2.txt" />
-    <Text Include="input3.txt" />
-    <Text Include="input4.txt" />
-    <Text Include="input5.txt" />
-    <Text Include="input6.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input1.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input2.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input3.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input4.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input5.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input6.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input7.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input8.txt" />
     <Text Include="output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

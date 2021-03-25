@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4f25d6c6-978b-4d2a-949e-9670c104aea2}</ProjectGuid>
-    <RootNamespace>ParallelRadixSort</RootNamespace>
+    <ProjectGuid>{2f4c003b-0da9-4d38-95db-97d5396b4aa6}</ProjectGuid>
+    <RootNamespace>ParallelRadixSortMPI</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -95,7 +95,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft SDKs\MPI\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>msmpi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,20 +142,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ParallelRadixSort.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\Inputs &amp; Outputs\input.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input1.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input2.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input3.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input4.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input5.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input6.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input7.txt" />
+    <Text Include="..\Inputs &amp; Outputs\input8.txt" />
     <Text Include="..\Inputs &amp; Output\output.txt" />
-    <Text Include="..\Inputs\input.txt" />
-    <Text Include="..\Inputs\input1.txt" />
-    <Text Include="..\Inputs\input2.txt" />
-    <Text Include="..\Inputs\input3.txt" />
-    <Text Include="..\Inputs\input4.txt" />
-    <Text Include="..\Inputs\input5.txt" />
-    <Text Include="..\Inputs\input6.txt" />
-    <Text Include="..\Inputs\input7.txt" />
-    <Text Include="..\Inputs\input8.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

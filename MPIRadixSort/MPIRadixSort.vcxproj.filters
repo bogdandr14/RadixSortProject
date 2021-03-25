@@ -20,10 +20,34 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="output.txt">
+    <Text Include="..\Inputs\input.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="input.txt">
+    <Text Include="..\Inputs\input1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs\input2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs\input3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs\input4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs\input5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs\input6.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs\input7.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs\input8.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Inputs &amp; Output\output.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

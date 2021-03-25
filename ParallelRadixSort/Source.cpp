@@ -6,8 +6,8 @@
 #include<ratio>
 #include "ParallelRadixSort.cpp"
 using namespace std;
-ifstream fin("input.txt");
-ofstream fout("output.txt");
+ifstream fin("../Inputs & Output/input5.txt");
+ofstream fout("../Inputs & Output/output.txt");
 #define BUFFER_SIZE 100000000
 
 int main(int& argc, char** argv) {
