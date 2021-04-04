@@ -116,7 +116,6 @@ void parallelRadixSort(int* toSort, int ELEM_FOR_PROC, int NO_PROCS, int PID) {
 	}
 
 	// Initialize the arrays for counting.
-	int globalPrefixSum[BASE]{ 0 };
 	int sortingPrefixSum[BASE]{ 0 };
 	int* localSorted = new int[ELEM_FOR_PROC];
 	int* allLocalCounters = new int[BASE * NO_PROCS];
@@ -130,6 +129,7 @@ void parallelRadixSort(int* toSort, int ELEM_FOR_PROC, int NO_PROCS, int PID) {
 
 		// Initialize the counter vector of the digits and the prefix sum used.
 		int localDigitCounter[BASE]{ 0 }, localPrefixSum[BASE]{ 0 };
+		int globalPrefixSum[BASE]{ 0 };
 
 		// Increment the counter for the digit at the [pos].
 		for (int i = 0; i < ELEM_FOR_PROC; ++i) {
@@ -154,13 +154,13 @@ void parallelRadixSort(int* toSort, int ELEM_FOR_PROC, int NO_PROCS, int PID) {
 		MPI_Allgather(localDigitCounter, BASE, MPI_INT, allLocalCounters, BASE, MPI_INT, MPI_COMM_WORLD);
 		MPI_Allgather(localPrefixSum, BASE, MPI_INT, allLocalPrefixSums, BASE, MPI_INT, MPI_COMM_WORLD);
 		// Sums the values from each counting array [localPrefixSum] and store the result in the counter [globalPrefixSum].
-		MPI_Allreduce(localPrefixSum, globalPrefixSum, BASE, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+		//MPI_Allreduce(localPrefixSum, globalPrefixSum, BASE, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
 		// Does the same thing.
-		/*for (int digit = 0; digit < BASE; ++digit) {
+		for (int digit = 0; digit < BASE; ++digit) {
 			for (int process = 0; process < NO_PROCS; ++process) {
 				globalPrefixSum[digit] += allLocalPrefixSums[process * BASE + digit];
 			}
-		}*/
+		}
 
 		/*--------------------------------------------------------------------------------------------------*/
 		/*Parallel calculation for redistributing the concatenated sorted elements to each process.*/
@@ -185,15 +185,17 @@ void parallelRadixSort(int* toSort, int ELEM_FOR_PROC, int NO_PROCS, int PID) {
 			localElements[i] = toSort[processPosition + allLocalPrefixSums[counterPosition] + index++];
 			if (index == allLocalCounters[counterPosition]) {
 				index = 0;
-				++process;
-				if (process == NO_PROCS) {
-					processPosition = process = 0;
-					counterPosition = ++digit;
-				}
-				else {
-					processPosition += ELEM_FOR_PROC;
-					counterPosition += BASE;
-				}
+				do {
+					++process;
+					if (process == NO_PROCS) {
+						processPosition = process = 0;
+						counterPosition = ++digit;
+					}
+					else {
+						processPosition += ELEM_FOR_PROC;
+						counterPosition += BASE;
+					}
+				} while (allLocalCounters[counterPosition] == 0);
 			}
 		}
 		digitPos *= BASE;
@@ -208,20 +210,27 @@ void parallelRadixSort(int* toSort, int ELEM_FOR_PROC, int NO_PROCS, int PID) {
 }
 
 int main(int& argc, char** argv) {
-	int PID, NO_PROCS, ELEM_FOR_PROC, NO_ELEMENTS;
+	int PID, NO_PROCS, ELEM_FOR_PROC, NO_ELEMENTS, addedZeros;
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &NO_PROCS);
 	MPI_Comm_rank(MPI_COMM_WORLD, &PID);
 
 	fin >> NO_ELEMENTS;
+	addedZeros = (NO_PROCS - NO_ELEMENTS % NO_PROCS) % NO_PROCS;
+	NO_ELEMENTS += addedZeros;
 	//Initialize array for elements to be sorted.
 	int* toSort = new int[NO_ELEMENTS] { 0 };
 	int* copyArray = new int[NO_ELEMENTS] { 0 };
 
 	if (!PID) {
 		for (int i = 0; i < NO_ELEMENTS; ++i) {
-			fin >> toSort[i];
+			if (i < addedZeros) {
+				toSort[i] = 0;
+			}
+			else {
+				fin >> toSort[i];
+			}
 			copyArray[i] = toSort[i];
 		}
 	}

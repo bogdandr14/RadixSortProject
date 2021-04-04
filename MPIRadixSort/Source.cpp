@@ -14,26 +14,31 @@ ofstream fout("../Inputs & Output/output.txt");
 #define BASE 256
 
 int main(int& argc, char** argv) {
-	int PID, NO_PROCS, ELEM_FOR_PROCS, NO_ELEMENTS, element;
+	int PID, NO_PROCS, ELEM_FOR_PROCS, NO_ELEMENTS, element, addedZeros;
+
+	MPI_Init(&argc, &argv);
+	MPI_Comm_size(MPI_COMM_WORLD, &NO_PROCS);
+	MPI_Comm_rank(MPI_COMM_WORLD, &PID);
+
 	fin >> NO_ELEMENTS;
+	
+	addedZeros = (NO_PROCS - NO_ELEMENTS % NO_PROCS) % NO_PROCS;
+	NO_ELEMENTS += addedZeros;
 
 	//Initialize array for elements to be sorted.
 	int** toSort = new int*[2];
 	toSort[0] = new int[NO_ELEMENTS];
 	toSort[1] = new int[NO_ELEMENTS];
 	for (int i = 0; i < NO_ELEMENTS; ++i) {
-		fin >> element;
-		toSort[0][i] = element;
+		if (i < addedZeros) {
+			toSort[0][i] = 0;
+		}
+		else {
+			fin >> element;
+			toSort[0][i] = element;
+		}
 	}
 
-	MPI_Init(&argc, &argv);
-	MPI_Comm_size(MPI_COMM_WORLD, &NO_PROCS);
-	MPI_Comm_rank(MPI_COMM_WORLD, &PID);
-
-	if (NO_ELEMENTS % NO_PROCS) {
-		cout << "can not equally divide the input";
-		return 0;
-	}
 	ELEM_FOR_PROCS = NO_ELEMENTS / NO_PROCS;
 
 	//Get the current moment of the clock for timing the sorting duration.
@@ -123,7 +128,7 @@ int main(int& argc, char** argv) {
 		auto t2 = std::chrono::high_resolution_clock::now();
 		std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 
-		/*for (int i = 0; i < NO_ELEMENTS; ++i) {
+		/*for (int i = addedZeros; i < NO_ELEMENTS; ++i) {
 			cout << toSort[noDigits % 2][i] << " ";
 		}*/
 		fout << time_span.count() * 1000;
