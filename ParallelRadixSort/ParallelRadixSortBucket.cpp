@@ -40,7 +40,7 @@ inline unsigned getDigit(unsigned x, int k, int j) {
     return (x >> k) & ~(~0 << j);
 }
 
-int* ParallelRadixSort(int* elementsToSort, int NO_ELEMENTS, int NO_PROCS, int PID) {
+int* ParallelRadixSortBucket(int* elementsToSort, int NO_ELEMENTS, int NO_PROCS, int PID) {
 
     int noLocalElem = NO_ELEMENTS / NO_PROCS; // number of elements for current process
     const int startingPoint = noLocalElem * PID; // starting point for retrieving the elements for current process

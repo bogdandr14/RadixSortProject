@@ -4,9 +4,9 @@
 #include<chrono>
 #include<ctime>
 #include<ratio>
-#include "ParallelRadixSort.cpp"
+#include "ParallelRadixSortBucket.cpp"
 using namespace std;
-ifstream fin("../Inputs & Output/input5.txt");
+ifstream fin("../Inputs & Output/input4.txt");
 ofstream fout("../Inputs & Output/output.txt");
 #define BUFFER_SIZE 100000000
 
@@ -51,7 +51,7 @@ int main(int& argc, char** argv) {
         t1 = Clock::now();
     }
 
-    toSort = ParallelRadixSort(toSort, NO_ELEMENTS, NO_PROCS, PID);
+    toSort = ParallelRadixSortBucket(toSort, NO_ELEMENTS, NO_PROCS, PID);
 
 	if (!PID) {
 		auto t2 = Clock::now();

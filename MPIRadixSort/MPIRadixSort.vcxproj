@@ -24,6 +24,7 @@
     <ProjectGuid>{1f0d04dd-db69-40b6-b724-95fab0f502df}</ProjectGuid>
     <RootNamespace>MPIRadixSort</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>PRadCPartial</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

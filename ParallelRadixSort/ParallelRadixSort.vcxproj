@@ -24,6 +24,7 @@
     <ProjectGuid>{4f25d6c6-978b-4d2a-949e-9670c104aea2}</ProjectGuid>
     <RootNamespace>ParallelRadixSort</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>PRadB</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -143,7 +144,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ParallelRadixSort.cpp" />
+    <ClCompile Include="ParallelRadixSortBucket.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

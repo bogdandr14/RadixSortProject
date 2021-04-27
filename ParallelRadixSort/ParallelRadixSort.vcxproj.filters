@@ -18,7 +18,7 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ParallelRadixSort.cpp">
+    <ClCompile Include="ParallelRadixSortBucket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

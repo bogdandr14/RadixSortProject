@@ -89,7 +89,7 @@ void checkCorrect(int* originalInput, int* sortedInput, int noElements) {
 
 /* Sorts the input parralel using radix sort with counting sort subroutine and MPI for parallelization.
  */
-void parallelRadixSort(int* toSort, int ELEM_FOR_PROC, int NO_PROCS, int PID) {
+void pRadCFull(int* toSort, int ELEM_FOR_PROC, int NO_PROCS, int PID) {
 
 	//Initialize array for local elements and variables
 	int* localElements = new int[ELEM_FOR_PROC] { 0 };
@@ -245,7 +245,7 @@ int main(int& argc, char** argv) {
 	//Get the current moment of the clock for timing the sorting duration.
 	std::chrono::steady_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 
-	parallelRadixSort(toSort, ELEM_FOR_PROC, NO_PROCS, PID);
+	pRadCFull(toSort, ELEM_FOR_PROC, NO_PROCS, PID);
 
 	//Get the current moment of the clock for the ending time of the sorting algorithm.
 	auto t2 = std::chrono::high_resolution_clock::now();
